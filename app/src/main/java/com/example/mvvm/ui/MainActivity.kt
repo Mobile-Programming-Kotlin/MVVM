@@ -17,6 +17,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.example.mvvm.model.Todo
 import com.example.mvvm.ui.theme.MVVMTheme
 import com.example.mvvm.viewmodel.TodoViewModel
 
@@ -43,13 +44,13 @@ fun MyApp(todoViewModel: TodoViewModel = viewModel()) {
 }
 
 @Composable
-fun TodoList(todos: List<String>) {
+fun TodoList(todos: List<Todo>) {
     LazyColumn(
         modifier = Modifier.padding(8.dp)
     ){
         items(todos) { todo ->
             Text(
-                text = todo,
+                text = todo.title,
                 modifier = Modifier.padding(top = 4.dp, bottom = 4.dp)
             )
             Divider(color = Color.LightGray, thickness = 1.dp)
